@@ -18,7 +18,7 @@ while(True):
         error=error+1
         continue
     #NON ERROR STAGES
-    rtt=re.findall(r"round-trip.*(\d\.\d+)/",data_s)
+    rtt=re.findall(r".*(\d\.\d+)/",data_s)
     ping_l.append(float(rtt[0]))
     print ping_l
     if len(ping_l)==10:
@@ -41,3 +41,5 @@ while(True):
         ping_l=[]
         error=0
     time.sleep(1)
+
+#rtt min/avg/max/mdev = 0.582/0.651/0.778/0.071 ms
