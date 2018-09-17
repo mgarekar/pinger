@@ -7,7 +7,7 @@ TARGET="facebook.com"
 command="ping -c 1 {}".format(TARGET)
 ping_l=[]
 error=0
-print socket.gethostbyname(socket.getfqdn())
+# print socket.gethostbyname(socket.getfqdn())
 while(True):
     try:
         data_s=subprocess.check_output(command,shell=True,stderr=subprocess.STDOUT)
@@ -29,7 +29,7 @@ while(True):
         timestamp=datetime.datetime.utcnow()
         data= "|||{}|||{}|||{}|||{}|||{}".format(timestamp,avg,minimum,maximum,error)
         #WRITE DATA TO FILE
-        with open("/Users/garmanav/Documents/python/project/data.out","a+") as f:
+        with open("data.out","a+") as f:
             f.write(data)
             f.write("\n")
         print "Average RTT of last 60 working samples is {}".format(sum(ping_l)/len(ping_l))
